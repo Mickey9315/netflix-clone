@@ -1,0 +1,12 @@
+#root {
+  /* @apply px-2; */
+  font-family: Inter;
+}
+
+/* #root header:before {
+  @apply absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-500 to-gray-100;
+} */
+
+* {
+  /* @apply outline outline-1 outline-red-400; */
+}
