@@ -2,6 +2,7 @@ import SearchBox from "./SearchBox";
 import primaryProfile from "../assets/profile-primary.png";
 import secondaryProfile from "../assets/profile-secondary.png";
 import kidsProfile from "../assets/profile-kids.png";
+import Logo from "../assets/Logo.svg";
 import { Icon } from "@iconify/react";
 import HoverDropdown from "./HoverDropdown";
 
@@ -10,7 +11,7 @@ export default function Header() {
     <header className="relative w-full flex items-center justify-between py-2 px-12 z-10 h-14 text-gray-50 bg-gradient-to-b from-gray-950 to-transparent">
       <nav className="flex items-center">
         <a href="/" className="mr-6">
-          <img className="w-8" src="/logo.svg" alt="Netflix Logo" />
+          <img className="w-8" src={Logo} alt="Netflix Logo" />
         </a>
         <ul className="flex items-center [&>*]:mr-4 last:[&>*]:mr-0">
           {["Home", "TV Series", "Movies", "My List"].map((navItem) => (
