@@ -9,4 +9,5 @@
 
 * {
   /* @apply outline outline-1 outline-red-400; */
+  @apply select-none;
 }
