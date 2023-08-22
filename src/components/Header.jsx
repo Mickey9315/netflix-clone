@@ -2,7 +2,7 @@ import SearchBox from "./SearchBox";
 import primaryProfile from "../assets/profile-primary.png";
 import secondaryProfile from "../assets/profile-secondary.png";
 import kidsProfile from "../assets/profile-kids.png";
-import Logo from "../assets/Logo.svg";
+import Logo from "../assets/logo.svg";
 import { Icon } from "@iconify/react";
 import HoverDropdown from "./HoverDropdown";
 
