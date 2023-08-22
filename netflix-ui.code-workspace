@@ -1,8 +1,12 @@
 {
-	"folders": [
-		{
-			"path": "."
-		}
-	],
-	"settings": {}
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "yaml.schemas": {
+      "https://json.schemastore.org/github-workflow.json": "file:///c%3A/Users/dawam/Documents/Projects/03-netflix-ui/.github/workflows/deploy.yml"
+    }
+  }
 }
