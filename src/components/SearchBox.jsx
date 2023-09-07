@@ -20,7 +20,7 @@ export default function SearchBox() {
       className={`flex items-center h-8 rounded-sm [&>*]:bg-transparent 
             ${
               inputToggle
-                ? "[&>input]:max-w-[18rem] border border-gray-300 bg-black"
+                ? "[&>input]:max-w-[18rem] border border-zinc-300 bg-black"
                 : "[&>input]:max-w-0"
             }
           `}

@@ -11,8 +11,8 @@ export default function Profiles({ onChooseProfile }) {
 
   return (
     !profileChosen && (
-      <section className="absolute transition-all duration-150 delay-75 w-full h-screen flex flex-col items-center justify-center bg-gray-950 text-gray-400 z-20 [&>*]:mb-10">
-        <h1 className="text-4xl font-semibold text-gray-100">
+      <section className="absolute transition-all duration-150 delay-75 w-full h-screen flex flex-col items-center justify-center bg-zinc-950 text-zinc-400 z-30 [&>*]:mb-10">
+        <h1 className="text-4xl font-semibold text-zinc-100">
           Who&apos;s Watching?
         </h1>
         {/* Profiles List */}
@@ -55,13 +55,13 @@ export default function Profiles({ onChooseProfile }) {
             <div className="w-32 h-32 flex items-center justify-center mb-4 ">
               <Icon
                 icon="heroicons:plus-circle-solid"
-                className="text-gray-400 text-8xl"
+                className="text-zinc-400 text-8xl"
               />
             </div>
             <span className="text-lg">Add Profile</span>
           </button>
         </div>
-        <button className="border border-gray-400 px-6 py-3 rounded">
+        <button className="border border-zinc-400 px-6 py-3 rounded">
           Manage Profiles
         </button>
       </section>

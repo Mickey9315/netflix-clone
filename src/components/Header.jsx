@@ -8,7 +8,7 @@ import HoverDropdown from "./HoverDropdown";
 
 export default function Header() {
   return (
-    <header className="relative w-full flex items-center justify-between py-2 px-12 z-10 h-14 text-gray-50 bg-gradient-to-b from-gray-950 to-transparent">
+    <header className="relative w-full flex items-center justify-between py-2 px-12 z-20 h-14 text-zinc-50 bg-gradient-to-b from-zinc-950 to-transparent">
       <nav className="flex items-center">
         <a href="/" className="mr-6">
           <img className="w-8" src={Logo} alt="Netflix Logo" />
@@ -21,7 +21,7 @@ export default function Header() {
           ))}
         </ul>
       </nav>
-      <div className="h-full flex items-center [&>*]:mr-3 last:[&>*]:mr-0 text-gray-50 [&_*]:transition-all [&_*]:duration-200">
+      <div className="h-full flex items-center [&>*]:mr-3 last:[&>*]:mr-0 text-zinc-50 [&_*]:transition-all [&_*]:duration-200">
         <SearchBox />
         <button>Kids</button>
         <div className="relative group">
@@ -29,8 +29,7 @@ export default function Header() {
             <Icon icon="heroicons:bell" className="text-xl shrink-0" />
           </button>
           <HoverDropdown
-            indicatorPostition={"2"}
-            classes={"items-center justify-center h-24"}
+            classes={"items-center justify-center h-24 [&>span]:right-2"}
           >
             <h2>No new notifications</h2>
           </HoverDropdown>
@@ -46,9 +45,8 @@ export default function Header() {
             className="text-sm group-hover:rotate-180"
           />
           <HoverDropdown
-            indicatorPostition={"5"}
             classes={
-              "text-sm hover:[&_li]:bg-gray-600/50 hover:[&>button]:bg-gray-600/50"
+              "text-sm hover:[&_li]:bg-zinc-600/50 hover:[&>button]:bg-zinc-600/50 [&>span]:right-5"
             }
           >
             <ul className="my-1 [&_button]:flex [&_button]:items-center [&>li]:py-2 [&>li]:px-3">
@@ -76,7 +74,7 @@ export default function Header() {
                 </li>
               ))}
             </ul>
-            <hr className="border-0 border-t border-gray-500/50" />
+            <hr className="border-0 border-t border-zinc-500/50" />
             <ul className="my-1 [&_a]:flex [&_a]:items-center [&>li]:py-2 [&>li]:px-3">
               <li>
                 <a href="#">
@@ -100,7 +98,7 @@ export default function Header() {
                 </a>
               </li>
             </ul>
-            <hr className="border-0 border-t border-gray-500/50" />
+            <hr className="border-0 border-t border-zinc-500/50" />
             <button className="my-1 text-center w-full py-2">Sign Out</button>
           </HoverDropdown>
         </div>

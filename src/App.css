@@ -4,7 +4,7 @@
 }
 
 /* #root header:before {
-  @apply absolute inset-0 bg-gradient-to-b from-gray-900 via-gray-500 to-gray-100;
+  @apply absolute inset-0 bg-gradient-to-b from-zinc-900 via-zinc-500 to-zinc-100;
 } */
 
 * {
