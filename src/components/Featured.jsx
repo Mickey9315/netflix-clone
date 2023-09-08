@@ -1,11 +1,14 @@
 import { Icon } from "@iconify/react";
+import Ctx from "../context/Ctx";
+import { useContext } from "react";
 
-export default function Featured() {
+export default function Featured({ title }) {
+  const { setCurrentTitleToggle, setCurrentTitle } = useContext(Ctx);
   return (
     <section className="relative h-screen overflow-hidden w-full flex flex-col justify-center text-zinc-50 px-12 [&>*]:mb-5 bg-gradient-to-r from-zinc-900/50 to-transparent">
       {/* Title Backdrop Image */}
       <img
-        src="https://www.themoviedb.org/t/p/original/e7VzDMrYKXVrVon04Uqsrcgnf1k.jpg"
+        src={title.imgUrl}
         alt="Feature Title Backdrop Image"
         className="w-full absolute inset-0 -z-10 object-cover"
       />
@@ -34,7 +37,13 @@ export default function Featured() {
             Play
           </button>
           {/* More Info Button */}
-          <button className="inline-flex items-center justify-center w-32 h-10 bg-zinc-500/80 rounded-md text-zinc-50">
+          <button
+            className="inline-flex items-center justify-center w-32 h-10 bg-zinc-500/80 rounded-md text-zinc-50"
+            onClick={() => {
+              setCurrentTitle(title);
+              setCurrentTitleToggle(true);
+            }}
+          >
             <Icon icon="heroicons:information-circle" className="mr-1" />
             More Info
           </button>

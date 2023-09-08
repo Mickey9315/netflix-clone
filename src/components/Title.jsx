@@ -1,13 +1,19 @@
 import { Icon } from "@iconify/react";
 import Logo from "../assets/logo.svg";
+import Ctx from "../context/Ctx";
+import { useContext } from "react";
 
 function Bullet() {
   return <span className="text-zinc-500 mx-1 last:hidden">&bull;</span>;
 }
 
-export default function Title({ titleObj }) {
+export default function Title({ title }) {
+  const { currentTitleToggle, setCurrentTitleToggle, setCurrentTitle } =
+    useContext(Ctx);
+
   return (
     <div className="w-64 h-36 rounded hover:rounded-b-none hover:scale-125 hover:-translate-y-8 origin-center first:origin-left last:origin-right transition-all duration-200 overflow-hidden hover:overflow-visible hover:shadow-lg hover:shadow-black mr-2 z-30 hover:z-40 [&>*]:border-[.5px] [&>*]:border-zinc-700 group/title">
+      {/* Title Poster */}
       <div className="relative h-full rounded group-hover/title:rounded-b-none group-hover/title:border-b-0 overflow-hidden bg-zinc-900">
         {/* Netflix logo */}
         <img
@@ -16,12 +22,13 @@ export default function Title({ titleObj }) {
           alt="Netflix Logo"
         />
         <img
-          className="max-w-full object-cover"
-          src={titleObj.imgUrl}
+          className="max-w-full object-cover bg-no-repeat"
+          src={title.imgUrl}
           alt="Title Cover Image"
         />
       </div>
-      <div className="p-2 space-y-2 bg-zinc-900 rounded-b opacity-0 invisible group-hover/title:opacity-100 group-hover/title:visible group-hover/title:border-t-0">
+      {/* Title Information */}
+      <div className="p-4 space-y-4 bg-zinc-900 rounded-b opacity-0 invisible group-hover/title:opacity-100 group-hover/title:visible group-hover/title:border-t-0">
         {/* Icon row */}
         <div className="flex items-center text-zinc-200 [&>button>*]:border-[1.5px] [&>button>*]:rounded-full [&>button>*]:text-3xl [&>button>*]:p-1 [&>button>*]:mr-1">
           <button>
@@ -39,7 +46,13 @@ export default function Title({ titleObj }) {
           <button>
             <Icon icon="heroicons:check-20-solid" className="border-zinc-500" />
           </button>
-          <button className="ml-auto mr-0">
+          <button
+            className="ml-auto mr-0"
+            onClick={() => {
+              setCurrentTitle(title);
+              setCurrentTitleToggle(true);
+            }}
+          >
             <Icon
               icon="heroicons:chevron-down-20-solid"
               className="border-zinc-500"
@@ -49,17 +62,17 @@ export default function Title({ titleObj }) {
         {/* Information row */}
         <div className="text-xs [&>*]:mr-1 [&>*]:text-zinc-500 [&>*]:py-[.125rem] [&>*]:px-1">
           <span className="border-[.5px] border-zinc-500 rounded">
-            {titleObj.maturityRating}
+            {title.maturityRating}
           </span>
           <span className="">8 Episodes</span>
           <span className="border-[.5px] border-zinc-500 rounded">HD</span>
         </div>
         {/* Genres row */}
         <div className="text-xs">
-          {titleObj.genres.map((genre) => (
+          {title.genres.map((genre) => (
             <>
               <span key={genre}>{genre}</span>
-              <Bullet />
+              <Bullet key={`genre-${Math.random()}`} />
             </>
           ))}
         </div>

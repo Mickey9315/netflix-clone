@@ -5,11 +5,42 @@ import Header from "./components/Header";
 import Banner from "./components/Banner";
 import Featured from "./components/Featured";
 // Context
-// import Ctx from "./context/Ctx";
+import Ctx from "./context/Ctx";
 import { useState } from "react";
 import SideScroll from "./components/SideScroll";
+import TitleExpanded from "./components/TitleExpanded";
 
 const DEMO_DATA = {
+  "TV Series": [
+    {
+      name: "The Witcher",
+      imgUrl:
+        "https://www.themoviedb.org/t/p/original/foGkPxpw9h8zln81j63mix5B7m8.jpg",
+      genres: ["Drama", "Fantasy", "Thriller"],
+      maturityRating: "TV-MA"
+    },
+    {
+      name: "Love, Death & Robots",
+      imgUrl:
+        "https://www.themoviedb.org/t/p/original/e7VzDMrYKXVrVon04Uqsrcgnf1k.jpg",
+      genres: ["Comedy", "Sci-Fi"],
+      maturityRating: "TV-MA"
+    },
+    {
+      name: "Stranger Things",
+      imgUrl:
+        "https://www.themoviedb.org/t/p/original/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
+      genres: ["Drama", "Sci-Fi", "Thriller"],
+      maturityRating: "TV-14"
+    },
+    {
+      name: "From Scratch",
+      imgUrl:
+        "https://www.themoviedb.org/t/p/original/mNXnh4Ua8wMvSlAiXXzX7G3Ko5p.jpg",
+      genres: ["Drama"],
+      maturityRating: "TV"
+    }
+  ],
   Comedies: [
     {
       name: "My Next Guest Needs No Introduction With David Letterman",
@@ -41,34 +72,13 @@ const DEMO_DATA = {
       genres: ["Documentary", "Informative"],
       maturityRating: "16+"
     }
-  ],
-  "TV Series": [
-    {
-      name: "The Witcher",
-      imgUrl:
-        "https://www.themoviedb.org/t/p/original/foGkPxpw9h8zln81j63mix5B7m8.jpg",
-      genres: ["Drama", "Fantasy", "Thriller"],
-      maturityRating: "TV-MA"
-    },
-    {
-      name: "Stranger Things",
-      imgUrl:
-        "https://www.themoviedb.org/t/p/original/56v2KjBlU4XaOv9rVYEQypROD7P.jpg",
-      genres: ["Drama", "Sci-Fi", "Thriller"],
-      maturityRating: "TV-14"
-    },
-    {
-      name: "From Scratch",
-      imgUrl:
-        "https://www.themoviedb.org/t/p/original/mNXnh4Ua8wMvSlAiXXzX7G3Ko5p.jpg",
-      genres: ["Drama"],
-      maturityRating: "TV"
-    }
   ]
 };
 
 function App() {
   const [profileChosen, setProfileChosen] = useState(false);
+  const [currentTitleToggle, setCurrentTitleToggle] = useState(false);
+  const [currentTitle, setCurrentTitle] = useState(DEMO_DATA["TV Series"][1]);
 
   const handleChooseProfile = () => setProfileChosen(() => true);
 
@@ -82,15 +92,32 @@ function App() {
       </Ctx.Provider> */}
       <Header />
       <main className="-my-14">
-        <Featured />
-        {/* Gradient Transition */}
-        <div className="w-full h-24 bg-gradient-to-b from-transparent to-zinc-900 -mt-24"></div>
-        {/* <Header /> */}
-        <div className="relative -top-32 px-12">
-          {Object.entries(DEMO_DATA).map(([k, v]) => (
-            <SideScroll key={k} label={k} titles={v} />
-          ))}
-        </div>
+        <Ctx.Provider
+          value={{
+            currentTitleToggle,
+            setCurrentTitleToggle,
+            currentTitle,
+            setCurrentTitle
+          }}
+        >
+          <Featured title={DEMO_DATA["TV Series"][1]} />
+          {/* Gradient Transition */}
+          <div className="w-full h-24 bg-gradient-to-b from-transparent to-zinc-900 -mt-24"></div>
+          <TitleExpanded
+            title={currentTitle}
+            onCollapseTitle={() => setCurrentTitleToggle(false)}
+          />
+          <div className="relative -top-32 px-12">
+            {Object.entries(DEMO_DATA).map(([k, v]) => (
+              <SideScroll
+                key={k}
+                label={k}
+                titles={v}
+                onCurrentTitleToggle={() => setCurrentTitleToggle(true)}
+              />
+            ))}
+          </div>
+        </Ctx.Provider>
       </main>
     </>
   );

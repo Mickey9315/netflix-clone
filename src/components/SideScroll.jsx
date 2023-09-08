@@ -11,9 +11,9 @@ export default function SideScroll({ label, titles }) {
           className="ml-2 text-red-500 invisible group-hover/sidescroll:visible"
         />
       </h3>
-      <div className="flex items-start space-x-4">
-        {titles.map((title) => (
-          <Title key={title.imgUrl} titleObj={title} />
+      <div className="flex items-start space-x-4 [&>*]:shrink-0">
+        {titles.map((title, index) => (
+          <Title key={index} title={title} />
         ))}
       </div>
     </section>
