@@ -22,7 +22,7 @@ const DEMO_DATA = {
     {
       name: "Love, Death & Robots",
       imgUrl:
-        "https://www.themoviedb.org/t/p/original/e7VzDMrYKXVrVon04Uqsrcgnf1k.jpg",
+        "https://www.themoviedb.org/t/p/original/6EQrEFSIpcEwPlaiSBhzstgmT2G.jpg",
       genres: ["Comedy", "Sci-Fi"],
       maturityRating: "TV-MA"
     },
