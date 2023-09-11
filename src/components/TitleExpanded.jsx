@@ -62,10 +62,10 @@ export default function TitleExpanded() {
                 Play
               </button>
               <button className="bg-black/10 border-zinc-300 rounded-full p-2">
-                <Icon icon="heroicons:hand-thumb-up-20-solid" />
+                <Icon icon="heroicons:check-20-solid" />
               </button>
               <button className="bg-black/10 border-zinc-300 rounded-full p-2">
-                <Icon icon="heroicons:check-20-solid" />
+                <Icon icon="heroicons:hand-thumb-up-20-solid" />
               </button>
               <button className="bg-black/10 border-zinc-300 rounded-full p-2 ml-auto">
                 <Icon icon="heroicons:speaker-wave" />
@@ -90,7 +90,7 @@ export default function TitleExpanded() {
                   {currentTitle.maturityRating}
                 </span>
               </div>
-              <p>
+              <p className="text-zinc-300">
                 Lorem ipsum dolor sit amet elit. Veniam, unde enim explicabo
                 quae repellat eius dolore reiciendis culpa neque.
               </p>

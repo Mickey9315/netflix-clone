@@ -78,7 +78,7 @@ const DEMO_DATA = {
 function App() {
   // const [profileChosen, setProfileChosen] = useState(false);
   const [currentTitleToggle, setCurrentTitleToggle] = useState(false);
-  const [currentTitle, setCurrentTitle] = useState(DEMO_DATA["TV Series"][1]);
+  const [currentTitle, setCurrentTitle] = useState(DEMO_DATA["TV Series"][0]);
 
   // const handleChooseProfile = () => setProfileChosen(() => true);
 
