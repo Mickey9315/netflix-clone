@@ -46,7 +46,7 @@ export default function Header() {
           />
           <HoverDropdown
             classes={
-              "text-sm hover:[&_li]:bg-zinc-600/50 hover:[&>button]:bg-zinc-600/50 [&>span]:right-5"
+              "text-sm hover:[&_li]:bg-zinc-500/50 hover:[&>button]:bg-zinc-500/50 [&>span]:right-5"
             }
           >
             <ul className="my-1 [&_button]:flex [&_button]:items-center [&>li]:py-2 [&>li]:px-3">

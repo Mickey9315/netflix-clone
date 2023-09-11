@@ -3,7 +3,7 @@ export default function HoverDropdown({ children, classes }) {
   return (
     <div
       className={
-        "flex flex-col absolute top-full right-0 w-56 group-hover:translate-y-1 group-hover:visible group-hover:opacity-100 opacity-0 invisible translate-y-2 rounded border border-zinc-500 bg-black/25 backdrop-blur-xl" +
+        "flex flex-col absolute top-full right-0 w-56 group-hover:translate-y-1 group-hover:visible group-hover:opacity-100 opacity-0 invisible translate-y-2 rounded border border-zinc-500 bg-black/50 backdrop-blur-xl" +
         " " +
         classes
       }

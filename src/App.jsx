@@ -6,7 +6,7 @@ import Banner from "./components/Banner";
 import Featured from "./components/Featured";
 // Context
 import Ctx from "./context/Ctx";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import SideScroll from "./components/SideScroll";
 import TitleExpanded from "./components/TitleExpanded";
 
@@ -76,11 +76,21 @@ const DEMO_DATA = {
 };
 
 function App() {
-  const [profileChosen, setProfileChosen] = useState(false);
+  // const [profileChosen, setProfileChosen] = useState(false);
   const [currentTitleToggle, setCurrentTitleToggle] = useState(false);
   const [currentTitle, setCurrentTitle] = useState(DEMO_DATA["TV Series"][1]);
 
-  const handleChooseProfile = () => setProfileChosen(() => true);
+  // const handleChooseProfile = () => setProfileChosen(() => true);
+
+  useEffect(() => {
+    if (currentTitleToggle) {
+      document.body.classList.add("overflow-y-hidden");
+      document.body.classList.remove("overflow-y-visible");
+    } else {
+      document.body.classList.add("overflow-y-visible");
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  }, [currentTitleToggle]);
 
   return (
     <>
@@ -102,7 +112,7 @@ function App() {
         >
           <Featured title={DEMO_DATA["TV Series"][1]} />
           {/* Gradient Transition */}
-          <div className="w-full h-24 bg-gradient-to-b from-transparent to-zinc-900 -mt-24"></div>
+          <div className="w-full h-28 bg-gradient-to-b from-transparent via-zinc-900/75 to-zinc-900 -mt-28"></div>
           <TitleExpanded
             title={currentTitle}
             onCollapseTitle={() => setCurrentTitleToggle(false)}

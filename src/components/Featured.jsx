@@ -5,12 +5,12 @@ import { useContext } from "react";
 export default function Featured({ title }) {
   const { setCurrentTitleToggle, setCurrentTitle } = useContext(Ctx);
   return (
-    <section className="relative h-screen overflow-hidden w-full flex flex-col justify-center text-zinc-50 px-12 [&>*]:mb-5 bg-gradient-to-r from-zinc-900/50 to-transparent">
+    <section className="relative h-screen overflow-hidden w-full flex flex-col justify-center text-zinc-50 px-12 [&>*]:mb-5 bg-gradient-to-r from-zinc-900/80 via-zinc-900/75 to-transparent">
       {/* Title Backdrop Image */}
       <img
         src={title.imgUrl}
         alt="Feature Title Backdrop Image"
-        className="w-full absolute inset-0 -z-10 object-cover"
+        className="w-full h-full absolute inset-0 -z-10 object-cover"
       />
       {/* Title Information */}
       <div className="[&>*]:mb-5">
