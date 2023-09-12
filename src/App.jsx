@@ -1,14 +1,19 @@
 import "./App.css";
+import "@fontsource/inter/400.css";
+import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
+import "@fontsource/inter/800.css";
+import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 // Components
 import Header from "./components/Header";
 // import Profiles from "./components/Profiles";
 import Banner from "./components/Banner";
 import Featured from "./components/Featured";
-// Context
-import Ctx from "./context/Ctx";
-import { useEffect, useState } from "react";
 import SideScroll from "./components/SideScroll";
 import TitleExpanded from "./components/TitleExpanded";
+// Context
+import Ctx from "./context/Ctx";
 
 const DEMO_DATA = {
   "TV Series": [
@@ -113,10 +118,13 @@ function App() {
           <Featured title={DEMO_DATA["TV Series"][1]} />
           {/* Gradient Transition */}
           <div className="w-full h-28 bg-gradient-to-b from-transparent via-zinc-900/75 to-zinc-900 -mt-28"></div>
-          <TitleExpanded
-            title={currentTitle}
-            onCollapseTitle={() => setCurrentTitleToggle(false)}
-          />
+          {createPortal(
+            <TitleExpanded
+              title={currentTitle}
+              onCollapseTitle={() => setCurrentTitleToggle(false)}
+            />,
+            document.body
+          )}
           <div className="relative -top-32 px-12">
             {Object.entries(DEMO_DATA).map(([k, v]) => (
               <SideScroll

@@ -1,6 +1,6 @@
-#root {
+body {
   /* @apply px-2; */
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
 }
 
 /* #root header:before {
