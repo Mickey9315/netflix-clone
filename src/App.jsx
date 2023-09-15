@@ -85,6 +85,10 @@ function App() {
   const [currentTitleToggle, setCurrentTitleToggle] = useState(false);
   const [currentTitle, setCurrentTitle] = useState(DEMO_DATA["TV Series"][0]);
 
+  const allSeries = Object.values(DEMO_DATA).reduce((acc, item) =>
+    acc.concat(item)
+  );
+  console.log(allSeries);
   // const handleChooseProfile = () => setProfileChosen(() => true);
 
   useEffect(() => {
@@ -106,7 +110,7 @@ function App() {
         <Profiles onChooseProfile={handleChooseProfile} />
       </Ctx.Provider> */}
       <Header />
-      <main className="-my-14">
+      <main className="-my-14 overflow-x-hidden">
         <Ctx.Provider
           value={{
             currentTitleToggle,
@@ -115,9 +119,11 @@ function App() {
             setCurrentTitle
           }}
         >
+          {/* Featured Title */}
           <Featured title={DEMO_DATA["TV Series"][1]} />
           {/* Gradient Transition */}
           <div className="w-full h-28 bg-gradient-to-b from-transparent via-zinc-900/75 to-zinc-900 -mt-28"></div>
+          {/* Expanded Title Modal */}
           {createPortal(
             <TitleExpanded
               title={currentTitle}
@@ -125,7 +131,13 @@ function App() {
             />,
             document.body
           )}
-          <div className="relative -top-32 px-12">
+          {/* Side Scroll for Titles */}
+          <div className="relative -top-32 pl-12">
+            <SideScroll
+              label={"Primary"}
+              titles={allSeries}
+              onCurrentTitleToggle={() => setCurrentTitleToggle(true)}
+            />
             {Object.entries(DEMO_DATA).map(([k, v]) => (
               <SideScroll
                 key={k}
